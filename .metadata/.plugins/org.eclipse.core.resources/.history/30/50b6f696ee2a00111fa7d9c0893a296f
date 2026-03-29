@@ -1,0 +1,79 @@
+package paq1;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JTextArea;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class V1 extends JFrame implements ActionListener {
+
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+	private JTextArea txtS;
+	private JButton btnNewButton;
+	private JTextField txtCod;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					V1 frame = new V1();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public V1() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		{
+			txtS = new JTextArea();
+			txtS.setBounds(10, 91, 414, 159);
+			contentPane.add(txtS);
+		}
+		{
+			btnNewButton = new JButton("Procesar");
+			btnNewButton.addActionListener(this);
+			btnNewButton.setBounds(278, 25, 89, 23);
+			contentPane.add(btnNewButton);
+		}
+		{
+			txtCod = new JTextField();
+			txtCod.setBounds(81, 26, 86, 20);
+			contentPane.add(txtCod);
+			txtCod.setColumns(10);
+		}
+
+	}
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnNewButton) {
+			do_btnNewButton_actionPerformed(e);
+		}
+	}
+	protected void do_btnNewButton_actionPerformed(ActionEvent e) {
+		int cod=Integer.parseInt(txtCod.getText());
+		Empleado e1=new Empleado(cod);
+		//e1.setCod(e1.getCod()+20);
+		txtS.append("El codigo es: " +e1.getCod());
+		
+	}
+}

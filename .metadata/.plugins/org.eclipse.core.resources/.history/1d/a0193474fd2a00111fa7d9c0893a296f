@@ -1,0 +1,85 @@
+package gui;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+import clase.ejercicio;
+
+import javax.swing.JTextArea;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class V3 extends JFrame implements ActionListener {
+
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+	private JTextArea txtS;
+	private JButton btnNewButton;
+	private JTextField txtNumero;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					V3 frame = new V3();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public V3() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		{
+			txtS = new JTextArea();
+			txtS.setBounds(10, 88, 414, 162);
+			contentPane.add(txtS);
+		}
+		{
+			btnNewButton = new JButton("Procesar");
+			btnNewButton.addActionListener(this);
+			btnNewButton.setBounds(288, 32, 89, 23);
+			contentPane.add(btnNewButton);
+		}
+		{
+			txtNumero = new JTextField();
+			txtNumero.setBounds(64, 33, 86, 20);
+			contentPane.add(txtNumero);
+			txtNumero.setColumns(10);
+		}
+
+	}
+
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnNewButton) {
+			do_btnNewButton_actionPerformed(e);
+		}
+	}
+	protected void do_btnNewButton_actionPerformed(ActionEvent e) {
+		double num=Double.parseDouble(txtS.getText());
+		ejercicio ej= new ejercicio(num);
+		
+		txtS.append("El numero es: "+num);
+		txtS.append("El resultado es: "+ej.resuelto());
+		
+	}
+}

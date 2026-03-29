@@ -1,0 +1,20 @@
+package paq1;
+
+public class Empleado {
+//public int cod;
+
+	private int cod;
+public Empleado(int cod) {	
+	this.cod = cod;
+}
+
+public int getCod() {
+	return cod;
+}
+
+public void setCod(int cod) {
+	this.cod = cod;
+}
+
+
+}

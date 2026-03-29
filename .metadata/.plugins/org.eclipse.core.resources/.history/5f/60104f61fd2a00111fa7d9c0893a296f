@@ -1,0 +1,23 @@
+package clase;
+
+public class ejercicio {
+private double num;
+
+public ejercicio(double num) {
+	super();
+	this.num = num;
+}
+
+public double getNum() {
+	return num;
+}
+
+public void setNum(double num) {
+	this.num = num;
+}
+
+
+public double resuelto() {
+	return num*num;
+}
+}
