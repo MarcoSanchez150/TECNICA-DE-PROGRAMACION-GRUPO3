@@ -75,6 +75,6 @@ public class V1 extends JFrame implements ActionListener {
 		e1.setCod(e1.getCod()+20);
 		//e1.setCod(20);
 		txtS.append("El codigo es: " +e1.getCod());
-		
+		txtS.append("Hola mundo" );
 	}
 }
